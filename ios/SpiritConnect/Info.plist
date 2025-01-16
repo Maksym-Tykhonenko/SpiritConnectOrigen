@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>SpiritConnectWithMind</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.spirit.connect</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.1</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>scotiabank</string>
+		<string>bmoolbb</string>
+		<string>cibcbanking</string>
+		<string>conexus</string>
+		<string>rbcmobile</string>
+		<string>pcfbanking</string>
+		<string>tdct</string>
+		<string>blank</string>
+		<string>wise</string>
+		<string>bncmobile</string>
+		<string>connexion</string>
+		<string>skrill</string>
+		<string>nl.abnamro.deeplink.psd2.consent</string>
+		<string>nl-snsbank-sign</string>
+		<string>nl-asnbank-sign</string>
+		<string>triodosmobilebanking</string>
+		<string>nbc</string>
+		<string>nbc.ca</string>
+		<string>bncmobile</string>
+		<string>app.nbc.ca</string>
+	</array>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>This app uses the camera to take a user avatar and photo to store in app private internal data set.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string></string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>To record audio files during video recording</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app uses the Photo Library to select a photo only.</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>To analyze the effectiveness of our marketing efforts and to improve the interaction with our users</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>arm64</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+</dict>
+</plist>
