@@ -22,6 +22,14 @@ import {usePracticeContext} from './store/context';
 const Stack = createNativeStackNavigator();
 ////////////////////////////////////////////////////////////////////////////
 import SpiritConnectOrigenProdactScreen from './screen/SpiritConnectOrigenProdactScreen';
+import ReactNativeIdfaAaid, {
+  AdvertisingInfoResponse,
+} from '@sparkfabrik/react-native-idfa-aaid';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {LogLevel, OneSignal} from 'react-native-onesignal';
+import appsFlyer from 'react-native-appsflyer';
+import AppleAdsAttribution from '@vladikstyle/react-native-apple-ads-attribution';
+import DeviceInfo from 'react-native-device-info';
 
 function App() {
   const [route, setRoute] = useState(false);
