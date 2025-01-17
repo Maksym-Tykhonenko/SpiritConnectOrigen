@@ -3,7 +3,7 @@ workflows:
     name: Spirit Connect With Mind
     max_build_duration: 120
     integrations:
-      app_store_connect: SpiritConnectCodemagicKey
+      app_store_connect: SpiritConnectApiKeyNew
     environment:
       ios_signing:
         distribution_type: app_store
