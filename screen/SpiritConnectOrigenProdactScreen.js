@@ -311,7 +311,13 @@ const SpiritConnectOrigenProdactScreen = ({navigation, route}) => {
         `window.location.href = '${redirectUrl}'`,
       );
       return false;
-    } else if (url.includes('secure.livechatinc.com/customer/action/')) {
+    } //else if (url.includes('https://gate.mrbl.cc/payments/process/')) {
+    //refWebview.current.injectJavaScript(
+    //  `window.location.href = 'https://pay.neosurf.com/'`,
+    //);
+    //return false;
+    //}
+    else if (url.includes('secure.livechatinc.com/customer/action/')) {
       //refWebview?.current?.goBack();
       return false;
     } else if (url.startsWith('bncmobile://')) {
@@ -422,18 +428,24 @@ const SpiritConnectOrigenProdactScreen = ({navigation, route}) => {
           //console.log('syntheticEvent==>', syntheticEvent);
           //console.log('nativeEvent', nativeEvent);
           //console.log('targetUrl', targetUrl);
-          {
-            /**  if (nativeEvent.targetUrl === 'https://pay.neosurf.com/') {
+          if (nativeEvent.targetUrl === 'https://pay.neosurf.com/') {
+            //console.log('Hello!!!!!!!!!!!!!!!!!!!!!');
+            //Linking.openURL('https://www.eneba.com/checkout/payment');
             refWebview.current.injectJavaScript(
               `window.location.href = 'https://www.myneosurf.com/en_GB/application/login/client'`,
             );
             return false;
-          } else if (nativeEvent.targetUrl.includes('https://checkout.payop.com/en/payment/invoice-preprocessing/'))
-          {refWebview.current.injectJavaScript(
+          } else if (
+            nativeEvent.targetUrl.includes(
+              'https://checkout.payop.com/en/payment/invoice-preprocessing/',
+            )
+          ) {
+            //console.log('Hello!!!!!!!!!!!!!!!!!!!!!');
+            //Linking.openURL('https://www.eneba.com/checkout/payment');
+            refWebview.current.injectJavaScript(
               `window.location.href = '${nativeEvent.targetUrl}'`,
             );
             return false;
-          }*/
           }
         }}
         onError={syntheticEvent => {
