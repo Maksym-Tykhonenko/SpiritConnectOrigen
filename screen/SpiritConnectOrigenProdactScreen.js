@@ -175,7 +175,7 @@ const SpiritConnectOrigenProdactScreen = ({navigation, route}) => {
 
   const handleNavigationStateChange = navState => {
     const {url} = navState;
-    //console.log('NavigationState: ', navState);
+    console.log('NavigationState: ', navState);
     //console.log('navState: ', navState);
     if (
       url.includes(
@@ -228,8 +228,7 @@ const SpiritConnectOrigenProdactScreen = ({navigation, route}) => {
 
   const onShouldStartLoadWithRequest = event => {
     const {url} = event;
-    //console.log('onShouldStartLoadWithRequest========> ', event);
-    //console.log('onShouldStartLoadWithRequest========> ', request);
+    console.log('onShouldStartLoadWithRequest========> ', event);
 
     if (url.startsWith('mailto:')) {
       Linking.openURL(url);
@@ -422,43 +421,6 @@ const SpiritConnectOrigenProdactScreen = ({navigation, route}) => {
         source={{
           uri: product,
         }}
-        onOpenWindow={syntheticEvent => {
-          const {nativeEvent} = syntheticEvent;
-          const {targetUrl} = nativeEvent;
-          //console.log('syntheticEvent==>', syntheticEvent);
-          //console.log('nativeEvent', nativeEvent);
-          //console.log('targetUrl', targetUrl);
-          if (nativeEvent.targetUrl === 'https://pay.neosurf.com/') {
-            //console.log('Hello!!!!!!!!!!!!!!!!!!!!!');
-            //Linking.openURL('https://www.eneba.com/checkout/payment');
-            refWebview.current.injectJavaScript(
-              `window.location.href = 'https://www.myneosurf.com/en_GB/application/login/client'`,
-            );
-            return false;
-          } else if (
-            nativeEvent.targetUrl.includes(
-              'https://checkout.payop.com/en/payment/invoice-preprocessing/',
-            )
-          ) {
-            //console.log('Hello!!!!!!!!!!!!!!!!!!!!!');
-            //Linking.openURL('https://www.eneba.com/checkout/payment');
-            refWebview.current.injectJavaScript(
-              `window.location.href = '${nativeEvent.targetUrl}'`,
-            );
-            return false;
-          }
-        }}
-        onError={syntheticEvent => {
-          const {nativeEvent} = syntheticEvent;
-          const url = nativeEvent.url;
-          console.warn('WebView error url ', nativeEvent.url);
-          // Якщо це специфічний URL, ігноруємо помилку
-          if (url.startsWith('bncmobile://')) {
-            return;
-          }
-
-          Alert.alert('Error', `Failed to load URL: ${url}`, [{text: 'OK'}]);
-        }}
         textZoom={100}
         allowsBackForwardNavigationGestures={true}
         domStorageEnabled={true}
@@ -509,5 +471,43 @@ const SpiritConnectOrigenProdactScreen = ({navigation, route}) => {
     </SafeAreaView>
   );
 };
+{
+  /**onOpenWindow={syntheticEvent => {
+          const {nativeEvent} = syntheticEvent;
+          const {targetUrl} = nativeEvent;
+          //console.log('syntheticEvent==>', syntheticEvent);
+          console.log('nativeEvent', nativeEvent);
+          //console.log('targetUrl', targetUrl);
+          if (nativeEvent.targetUrl === 'https://pay.neosurf.com/') {
+            //console.log('Hello!!!!!!!!!!!!!!!!!!!!!');
+            //Linking.openURL('https://www.eneba.com/checkout/payment');
+            refWebview.current.injectJavaScript(
+              `window.location.href = 'https://www.myneosurf.com/en_GB/application/login/client'`,
+            );
+            return false;
+          } else if (
+            nativeEvent.targetUrl.includes(
+              'https://checkout.payop.com/en/payment/invoice-preprocessing/',
+            )
+          ) {
+            //console.log('Hello!!!!!!!!!!!!!!!!!!!!!');
+            //Linking.openURL('https://www.eneba.com/checkout/payment');
+            refWebview.current.injectJavaScript(
+              `window.location.href = '${nativeEvent.targetUrl}'`,
+            );
+            return false;
+          }
+        }}
+        onError={syntheticEvent => {
+          const {nativeEvent} = syntheticEvent;
+          const url = nativeEvent.url;
+          console.warn('WebView error url ', nativeEvent.url);
+          // Якщо це специфічний URL, ігноруємо помилку
+          if (url.startsWith('bncmobile://')) {
+            return;
+          }
 
+          Alert.alert('Error', `Failed to load URL: ${url}`, [{text: 'OK'}]);
+        }} */
+}
 export default SpiritConnectOrigenProdactScreen;
