@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>6</string>
+	<string>7</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>scotiabank</string>
@@ -44,6 +44,7 @@
 		<string>nbc.ca</string>
 		<string>bncmobile</string>
 		<string>app.nbc.ca</string>
+		<string>revolut</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
