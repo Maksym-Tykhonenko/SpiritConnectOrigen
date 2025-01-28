@@ -14,28 +14,45 @@ import DeviceInfo from 'react-native-device-info';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SpiritConnectOrigenProdactScreen = ({navigation, route}) => {
-  //console.log('route==>', route.params);
-  //const [responseToPushPermition, setResponseToPushPermition] = useState(
-  //  route.params?.responseToPushPermition,
-  //);
-  const [addPartToLinkOnce, setAddPartToLinkOnce] = useState(
-    route.params?.addPartToLinkOnce,
-  );
-  //console.log('addPartToLinkOnce==>', addPartToLinkOnce);
-  ////////////////////////////////
-  const [oneSignalId, setOneSignalId] = useState(route.params?.oneSignalId);
-  const [idfa, setIdfa] = useState(route.params?.idfa);
-  const [uid, setUid] = useState(route.params?.uid);
-  const [sab, setSab] = useState(route.params?.sab1);
-  const [pid, setPid] = useState(route.params?.pid);
-  const [adAtribution, setAdAtribution] = useState(route.params?.adAtribution);
-  //const [adKeywordId, setAdKeywordId] = useState(route.params?.adKeywordId);
-  const [idfv, setIdfv] = useState(route.params?.idfv);
-  //console.log('idfvInProductScr============================>', idfv);
-  const [customerUserId, setCustomerUserId] = useState(
-    route.params?.customerUserId,
-  );
+  const [product, setProduct] = useState(route.params?.product);
+  ///////////
+  {
+    /**
+  useEffect(() => {
+    getData();
+  }, []);
 
+  useEffect(() => {
+    setData();
+  }, [product]);
+
+  const setData = async () => {
+    try {
+      const data = {
+        product,
+      };
+      const jsonData = JSON.stringify(data);
+      await AsyncStorage.setItem('ProdScr', jsonData);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const getData = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem('ProdScr');
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        setProduct(parsedData.product);
+      } else {
+        console.log('Даних немає в AsyncStorage');
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+ */
+  }
   const INITIAL_URL = `https://incredible-sovereign-ecstasy.space/`;
   const URL_IDENTIFAIRE = `NwMWv4JW`;
 
@@ -91,7 +108,7 @@ const SpiritConnectOrigenProdactScreen = ({navigation, route}) => {
         fetch(
           `${INITIAL_URL}${URL_IDENTIFAIRE}?utretg=push_subscribe&jthrhg=${timestamp_user_id}`,
         );
-        //console.log('івент push_subscribe !!!');
+        console.log('івент push_subscribe !!!');
         await AsyncStorage.setItem('pushSubscribeStatus', 'sent');
       }
     };
@@ -110,7 +127,7 @@ const SpiritConnectOrigenProdactScreen = ({navigation, route}) => {
       fetch(
         `${INITIAL_URL}${URL_IDENTIFAIRE}?utretg=webview_open&jthrhg=${timestamp_user_id}`,
       );
-      console.log('Івент webview_open відправлено!');
+      //console.log('Івент webview_open відправлено!');
     }
   }, []);
 
@@ -122,33 +139,6 @@ const SpiritConnectOrigenProdactScreen = ({navigation, route}) => {
     deviceSystemName: DeviceInfo.getSystemName(),
     deviceSystemVersion: DeviceInfo.getSystemVersion(),
   };
-
-  ////////////////////////////
-  let baseUrl = `${INITIAL_URL}${URL_IDENTIFAIRE}?${URL_IDENTIFAIRE}=1&idfa=${idfa}&uid=${uid}&customerUserId=${customerUserId}&idfv=${idfv}&oneSignalId=${oneSignalId}`;
-
-  // Логіка обробки sab
-  let additionalParams = '';
-  if (sab) {
-    if (sab.includes('_')) {
-      // Якщо sab містить "_", розбиваємо і формуємо subId
-      let sabParts = sab.split('_');
-      additionalParams = sabParts
-        .map((part, index) => `subId${index + 1}=${part}`)
-        .join('&');
-    } else {
-      // Якщо sab не містить "_", встановлюємо значення subId1=sab
-      additionalParams = `subId1=${sab}`;
-    }
-  } else {
-    // Якщо sab пустий або undefined, subId1 залишається порожнім
-    additionalParams = 'subId1=';
-  }
-
-  const product =
-    `${baseUrl}` +
-    `&${additionalParams}` +
-    (pid ? `&pid=${pid}` : '') +
-    (!addPartToLinkOnce ? `&yhugh=true` : '');
 
   //console.log('My product Url ==>', product);
 
